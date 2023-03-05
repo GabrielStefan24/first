@@ -1,11 +1,15 @@
-import { useState } from "react";
+import Card from "./Card";
+import { FaTimes } from "react-icons/fa";
 
-function FeedbackItem() {
+function FeedbackItem({ item, handleDelete }) {
   return (
-    <div className="card">
-      <div className="num-display">10</div>
-      <div className="text-display">exemplu de feedback</div>
-    </div>
+    <Card reverse={false}>
+      <div className="num-display">{item.rating}</div>
+      <button className="close" onClick={() => handleDelete(item.id)}>
+        <FaTimes color="purple" />
+      </button>
+      <div className="text-display">{item.text}</div>
+    </Card>
   );
 }
 
